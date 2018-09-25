@@ -61,7 +61,7 @@ done
 echo "Installing SIMBLAgent"
 
 mySIMBL=$(dirname "$0")
-cp -vr "$mySIMBL"/SIMBL.osax /System/Library/ScriptingAdditions/
+cp -vr "$mySIMBL"/SIMBL.osax /Library/ScriptingAdditions/
 cp -vr "$mySIMBL"/SIMBLAgent.app "/Library/Application Support/SIMBL/"
 cp -v "$mySIMBL"/SIMBLAgent.app/Contents/Resources/net.culater.SIMBL.Agent.plist "/Library/LaunchAgents"
 
