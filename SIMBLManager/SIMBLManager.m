@@ -210,7 +210,7 @@ SIMBLManager* si_SIMBLManager;
 }
 
 - (Boolean)OSAX_installed {
-    return [[NSFileManager defaultManager] fileExistsAtPath:@"/System/Library/ScriptingAdditions/SIMBL.osax"];
+    return [[NSFileManager defaultManager] fileExistsAtPath:@"/Library/ScriptingAdditions/SIMBL.osax"];
 }
 
 - (Boolean)OSAX_install {
@@ -235,7 +235,7 @@ SIMBLManager* si_SIMBLManager;
 }
 
 - (NSDictionary*)OSAX_versions {
-    NSMutableDictionary *local = [NSMutableDictionary dictionaryWithContentsOfFile:@"/System/Library/ScriptingAdditions/SIMBL.osax/Contents/Info.plist"];
+    NSMutableDictionary *local = [NSMutableDictionary dictionaryWithContentsOfFile:@"/Library/ScriptingAdditions/SIMBL.osax/Contents/Info.plist"];
     NSMutableDictionary *current = [NSMutableDictionary dictionaryWithContentsOfFile:[[NSBundle bundleForClass:[SIMBLManager class]] pathForResource:@"SIMBL.osax/Contents/Info" ofType:@"plist"]];
     NSString *locVer = [local objectForKey:@"CFBundleVersion"];
     NSString *curVer = [current objectForKey:@"CFBundleVersion"];
@@ -248,9 +248,9 @@ SIMBLManager* si_SIMBLManager;
 }
 
 - (Boolean)OSAX_needsUpdate {
-    if (![[NSFileManager defaultManager] fileExistsAtPath:@"/System/Library/ScriptingAdditions/SIMBL.osax/Contents/Info.plist"])
+    if (![[NSFileManager defaultManager] fileExistsAtPath:@"/Library/ScriptingAdditions/SIMBL.osax/Contents/Info.plist"])
         return true;
-    NSMutableDictionary *local = [NSMutableDictionary dictionaryWithContentsOfFile:@"/System/Library/ScriptingAdditions/SIMBL.osax/Contents/Info.plist"];
+    NSMutableDictionary *local = [NSMutableDictionary dictionaryWithContentsOfFile:@"/Library/ScriptingAdditions/SIMBL.osax/Contents/Info.plist"];
     NSMutableDictionary *current = [NSMutableDictionary dictionaryWithContentsOfFile:[[NSBundle bundleForClass:[SIMBLManager class]] pathForResource:@"SIMBL.osax/Contents/Info" ofType:@"plist"]];
     NSString *actualVersion = [local objectForKey:@"CFBundleVersion"];
     NSString *requiredVersion = [current objectForKey:@"CFBundleVersion"];
